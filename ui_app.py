@@ -4,19 +4,61 @@ import pandas as pd
 from src.main import process_query
 from src.intent_detector import detect_intent
 
+st.markdown("""
+    <style>
+    /* Global font and main text color */
+    html, body, [class*="st-"] {
+        font-family: 'Segoe UI', 'Arial', sans-serif !important;
+        color: #0075BF !important;       /* Professional Blue */
+    }
+    /* DataFrame/table cells */
+    .stDataFrame th, .stDataFrame td {
+        color: #0075BF !important;
+    }
+    /* Headings (st.title, st.header, etc.) */
+    .stMarkdown h1, .stMarkdown h2, .stMarkdown h3, .stMarkdown h4 {
+        color: #0075BF !important;
+    }
+    /* Sidebar text */
+    .css-1d391kg, .css-1v0mbdj, .css-1cpxqw2 { 
+        color: #0075BF !important;
+    }
+    /* BUTTONS: Magenta background, white text always */
+    .stButton button {
+        font-family: 'Segoe UI', 'Arial', sans-serif !important;
+        background-color: rgb(213, 47, 137) !important;   /* Magenta */
+        color: #FFFFFF !important;                        /* Force white text */
+        border-radius: 7px !important;
+        font-size: 16px !important;
+        border: none !important;
+        padding: 0.5em 1.2em !important;
+        transition: background 0.2s;
+        font-weight: 500;
+    }
+    .stButton button:hover {
+        background-color: rgb(170, 37, 110) !important;
+        color: #FFFFFF !important;
+    }
+    /* Fixes for possible button text selectors */
+    .stButton > button, .stButton button div, .stButton button span {
+        color: #FFFFFF !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 
 # load DataFrame
 df = pd.read_csv('data/Risk_Register__100_Rows.csv')
+df.index = df.index + 1
 
 # Set up app formatting
 st.set_page_config(page_title="Risk Register Assistant", layout="centered")
 st.title("Risk Register Assistant")
 
 
-# Utility for DataFrame display with 1-based index and dynamic height
+# Utility for DataFrame display dynamic height
 def show_dataframe_with_index(df_to_show, caption=None):
     display_df = df_to_show.copy()
-    display_df.index = display_df.index + 1
     n_rows = len(display_df)
     ROW_HEIGHT = 38
     HEADER_HEIGHT = 38
