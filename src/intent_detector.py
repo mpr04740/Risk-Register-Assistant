@@ -60,7 +60,4 @@ def detect_intent(user_input: str) -> list:
         temperature=0
     )
     raw = resp.choices[0].message.content
-    print(type(raw))
     return json.loads(raw)
-
-print(detect_intent('who is John Pork'))
