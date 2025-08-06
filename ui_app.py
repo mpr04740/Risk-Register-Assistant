@@ -53,8 +53,10 @@ df.index = df.index + 1
 
 # Set up app formatting
 st.set_page_config(page_title="Risk Register Assistant", layout="centered")
-st.title("Risk Register Assistant")
-
+try:
+    st.image("data/logo.svg", width=100)
+except Exception as e:
+    st.warning("Logo could not be loaded.")
 
 # Utility for DataFrame display dynamic height
 def show_dataframe_with_index(df_to_show, caption=None):
