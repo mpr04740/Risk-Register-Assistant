@@ -27,7 +27,7 @@ Rules:
 - If the user is asking about the meaning of a word, concept, or any general question → include other.
 - If both a field-based reference and a general question appear in the same input, include both, with filter_data listed first.
 
-Respond only with a list of actions. Example:
+Respond only with a list of actions, **which can be converted to JSON**. Example:
 ["filter_data", "summarise_risks", 'other']
 
 Note: Often when you filter the user may benefit from a summary, if they ask for you to 'tell them about risks', 'summarise', 'explain' etc this is a clue to add the 'summarise_risks' action.
@@ -60,4 +60,7 @@ def detect_intent(user_input: str) -> list:
         temperature=0
     )
     raw = resp.choices[0].message.content
+    print(type(raw))
     return json.loads(raw)
+
+print(detect_intent('who is John Pork'))
