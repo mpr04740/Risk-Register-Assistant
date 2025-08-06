@@ -119,7 +119,7 @@ if not st.session_state['submitted']:
     show_dataframe_with_index(df)
 
 # Query input
-user_query = st.text_input("Enter your risk query:", "")
+user_query = st.text_input("Hi, how can help? Ask me anything about the risk register:", "")
 
 # When user clicks Submit
 if st.button("Submit") and user_query.strip():
