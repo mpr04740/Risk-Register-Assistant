@@ -137,7 +137,7 @@ if st.button("Submit") and user_query.strip():
     st.info(f"This query involves {action_msg}.")
 
     # Run the query
-    with st.spinner(f"Loading... {action_msg.capitalize()}..."):
+    with st.spinner(f"Thinking..."):
         filtered_df, filter_explanation, summary, final_summary = process_query(
             user_query, df, intent
         )
