@@ -49,8 +49,6 @@ st.markdown("""
 
 # load DataFrame
 df = pd.read_csv('data/Risk_Register__100_Rows.csv')
-df['Date Raised'] = pd.to_datetime(df['Date Raised'], errors='coerce') # added some data type conversions
-df['Date Updated'] = pd.to_datetime(df['Date Updated'], errors='coerce')
 df.index = df.index + 1
 
 # Set up app formatting
