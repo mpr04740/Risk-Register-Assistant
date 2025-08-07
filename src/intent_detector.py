@@ -32,7 +32,7 @@ Respond only with a list of actions, **which can be converted to JSON**. Example
 
 Note: - Often when you filter the user may benefit from a summary, if they ask for you to 'tell them about risks', 'summarise', 'explain' etc this is a clue to add the 'summarise_risks' action.
       - If the user asks for a value from a column, e.g. 'What is the risk owner for X?', you will need to add a 'filter_data' **and a summarise_risks**, as summarise_risks will read the data and respond!.
-"""    
+  
 ---
 ### Examples:
 
