@@ -22,8 +22,8 @@ Classify each request into one or more of the following actions:
 3. other : The user is asking for definitions, clarification, or any request not about retrieving or summarising risks.
 
 Rules:
-- If the user mentions time, region, contract, risk type, financial figures, or other specific fields → include filter_data.
-- If the user asks for summaries, trends, overviews or for you to tell them about the risks → include summarise_risks.
+- If the user mentions time, region, contract, risk type, risk owner, financial figures, or other specific fields → include filter_data.
+- If the user asks for summaries, trends, overviews, for specific values from columns or for you to tell them about the risks → include summarise_risks.
 - If the user is asking about the meaning of a word, concept, or any general question → include other.
 - If both a field-based reference and a general question appear in the same input, include both, with filter_data listed first.
 
@@ -34,7 +34,7 @@ Note: Often when you filter the user may benefit from a summary, if they ask for
 ---
 ### Examples:
 
-**User**: "Summarise the biggest risks this quarter"  
+**User**: "What is the biggest risks this quarter and who is the risk owner?"  
 **Actions**: ["filter_data", "summarise_risks"]
 
 **User**: "What are the most pressing risks in the next 12 months and tell me about these risks"  
