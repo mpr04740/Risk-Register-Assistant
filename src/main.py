@@ -30,6 +30,7 @@ def process_query(user_query, df, intent):
     if "other" in intent:
         if "summarise_risks" not in intent:
             final_summary = other_assistant(user_query, summary, filter_explanation, filtered_df)
+            print('USING DATA CONFIRMATION')
 
         else:
            final_summary = other_assistant(user_query, summary, filter_explanation)
