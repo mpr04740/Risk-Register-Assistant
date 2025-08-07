@@ -46,7 +46,8 @@ You will receive:
 
 ### Output:
 Respond with a **short paragraph** (3-7 sentences) in clear, business-appropriate English that directly answers the user prompt, using the data and any prior summary as context.
-Make it look pretty! Use paragraphs, bullet points and other formatting tools like bold when appropriate.
+Make it look pretty! Use paragraphs, bullet points and other formatting tools like bold when appropriate. 
+**Use bold** as much as is appropriate to help fast reading and understanding.
 
 ---
 

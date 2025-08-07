@@ -37,6 +37,7 @@ You should:
 ### Output format:
 Respond only with a short natural-language paragraph (3-5 sentences). Do not output code or tables.
 Make it look pretty! Use paragraphs, bullet points and other formatting tools like bold when appropriate.
+**Use bold** as much as is appropriate to help fast reading and understanding.
 
 ### Examples:
 
