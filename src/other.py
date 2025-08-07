@@ -38,6 +38,7 @@ If a prior summary is included:
 
 If you receive the filtered data:
 - Use it to provide specific insights or data points, as has been requested.
+- Check if anything the user asked for is present in the data, and if so, include it in your response.
 - If the data is empty, return a simple message like: “No risks matched the criteria".
 
 **Note**: If the user prompt is not directly related to corporate/project risk or the risk register then start your response with something like 'This isn't exactly related to risk but...'.

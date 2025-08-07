@@ -28,7 +28,11 @@ def process_query(user_query, df, intent):
         summary = summary_assistant(user_query, filtered_df, filter_explanation, intent)
 
     if "other" in intent:
-        final_summary = other_assistant(user_query, summary, filter_explanation)
+        if "summarise_risks" not in intent:
+            final_summary = other_assistant(user_query, summary, filter_explanation, filtered_df)
+
+        else:
+           final_summary = other_assistant(user_query, summary, filter_explanation)
 
     return filtered_df, filter_explanation, summary, final_summary
 
