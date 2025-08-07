@@ -26,17 +26,17 @@ Rules:
 - If the user asks for summaries, trends, overviews, for specific values from columns or for you to tell them about the risks → include summarise_risks.
 - If the user is asking about the meaning of a word, concept, or any general question → include other.
 - If both a field-based reference and a general question appear in the same input, include both, with filter_data listed first.
+- - If the user asks for a value from a column, e.g. 'Who is the risk owner for X?', you will need to add a 'filter_data' **and a summarise_risks**, as summarise_risks will read the data and respond!.
 
 Respond only with a list of actions, **which can be converted to JSON**. Example:
 ["filter_data", "summarise_risks", 'other']
 
 Note: - Often when you filter the user may benefit from a summary, if they ask for you to 'tell them about risks', 'summarise', 'explain' etc this is a clue to add the 'summarise_risks' action.
-      - If the user asks for a value from a column, e.g. 'What is the risk owner for X?', you will need to add a 'filter_data' **and a summarise_risks**, as summarise_risks will read the data and respond!.
   
 ---
 ### Examples:
 
-**User**: "What is the biggest risks this quarter and who is the risk owner?"  
+**User**: "What is the biggest risks this quarter and tell me who the risk owner is?"  
 **Actions**: ["filter_data", "summarise_risks"]
 
 **User**: "What are the most pressing risks in the next 12 months and tell me about these risks"  

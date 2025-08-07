@@ -43,6 +43,10 @@ Be very jovial/cheeky with this, as if to say 'this isn't my job' but I do know 
 You will receive:
 - `user_prompt` (string): the user's question
 - `prior_summary` (string or null): a summary of the filtered data from a previous assistant (may be omitted)
+- `filter_explanation` (string or null): an explanation of how the data was filtered (may be omitted)
+- 'filtered_df' (optional pandas DataFrame): the filtered risk data in JSON format (may be omitted)
+
+**You will recieve the filtered_df only if there is no prior_summary**
 
 ### Output:
 Respond with a **short paragraph** (3-7 sentences) in clear, business-appropriate English that directly answers the user prompt, using the data and any prior summary as context.
@@ -79,6 +83,7 @@ def other_assistant(
     user_input: str,
     prior_summary: Optional[str] = None,
     filter_explanation: Optional[str] = None,
+    filtered_df: Optional[pd.DataFrame] = None
 ) -> str:
     """
     Generate a final summary report for `user_input` using:
@@ -96,6 +101,11 @@ def other_assistant(
 
     if prior_summary is not None:
         payload['prior_summary'] = prior_summary
+
+    if filtered_df is not None:
+        if prior_summary is None:
+            records = filtered_df.to_dict(orient="records")
+            payload["filtered_data"] = records
 
     response = client.chat.completions.create(
         model="gpt-4o-mini",
