@@ -52,7 +52,7 @@ df = pd.read_csv('data/Risk_Register__100_Rows.csv')
 df.index = df.index + 1
 
 # Set up app formatting
-st.set_page_config(page_title="Risk Register Assistant", layout="centered")
+st.set_page_config(page_title="ROBO Risk", layout="centered")
 try:
     st.image("data/logo.svg", width=100)
 except Exception as e:
@@ -119,7 +119,7 @@ if not st.session_state['submitted']:
     show_dataframe_with_index(df)
 
 # Query input
-user_query = st.text_input("Hi, how can help? Ask me anything about the risk register:", "")
+user_query = st.text_input("Hi, I'm ROBO. \n How can help? Ask me anything about the risk register:", "")
 
 # When user clicks Submit
 if st.button("Submit") and user_query.strip():
