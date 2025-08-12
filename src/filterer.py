@@ -4,12 +4,12 @@ import os
 import json
 from openai import OpenAI
 from dotenv import load_dotenv
+import streamlit as st
+from src.fetch_key import get_openai_key
 
-# Load environment variables from .env
-load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")
+api_key = get_openai_key()
 if not api_key:
-    raise RuntimeError("OPENAI_API_KEY not found—please set it in your .env or shell.")
+    raise RuntimeError("OPENAI_API_KEY not found—please set it in your .env or shell or add to secrets.")
 
 # Initialize OpenAI client
 client = OpenAI(api_key=api_key)
